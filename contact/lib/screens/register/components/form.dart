@@ -26,15 +26,17 @@ class _FormState extends State<FormFild> {
             height: 10,
           ),
           TextFormField(
+            obscureText: true,
             decoration: InputDecoration(
-                icon: Icon(Icons.security_sharp), hintText: 'Digite uma senha'),
+                icon: Icon(Icons.vpn_key), hintText: 'Digite uma senha'),
           ),
           SizedBox(
             height: 10,
           ),
           TextFormField(
+            obscureText: true,
             decoration: InputDecoration(
-                icon: Icon(Icons.security_sharp), hintText: 'Confirme sua senha'),
+                icon: Icon(Icons.vpn_key), hintText: 'Confirme sua senha'),
           ),
           SizedBox(
             height: 10,

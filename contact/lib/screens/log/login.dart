@@ -26,6 +26,11 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Text('ContatosApp!',style: TextStyle(
+                  fontFamily: 'RobotoMono',
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600),),
                 Text(
                   'Seja bem vindo(a)!',
                   style: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:contact/screens/log/login.dart';
 import 'package:flutter/material.dart';
 
 class DrawerHome extends StatefulWidget {
@@ -36,9 +37,21 @@ class _DrawerHomeState extends State<DrawerHome> {
               Navigator.of(context).pushNamed('/home');
             },
           ),
+          ExpansionTile(
+            leading: Icon(Icons.group),
+            title:Text('Grupos'),
+            children: [], ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
+          ),
+           ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => Login()));
+            },
           ),
         ],
       ),

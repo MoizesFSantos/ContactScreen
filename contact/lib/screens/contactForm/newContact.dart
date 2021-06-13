@@ -1,3 +1,4 @@
+import 'package:contact/screens/contactForm/components/Contact.dart';
 import 'package:contact/shared/components/drawerMenu.dart';
 import 'package:flutter/material.dart';
 
@@ -54,24 +55,7 @@ class _NewCttState extends State<NewCtt> {
                   )),
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 30, horizontal: 22),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.person), hintText: 'Informe o nome'),
-                    ),
-                    TextFormField(
-                        decoration: InputDecoration(
-                            icon: Icon(Icons.email),
-                            hintText: 'Informe o email')),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        icon: Icon(Icons.add_box_sharp),
-                        hintText: 'Informe o CEP'
-                      ),
-                    ),
-                  ],
-                ),
+                child: ContactForm(),
               ),
             ),
           ],

@@ -1,4 +1,3 @@
-import 'package:contact/screens/home/home.dart';
 import 'package:contact/screens/log/login.dart';
 import 'package:flutter/material.dart';
 

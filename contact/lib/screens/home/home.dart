@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
             LayoutBuilder(
               builder: (_, constraints) {
                 return Container(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   height: MediaQuery.of(context).size.height *.85,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -64,6 +64,7 @@ class _HomeState extends State<Home> {
                     itemCount: contacts.length,
                     itemBuilder: (BuildContext context, int index) {
                       return ExpansionTile(
+                        //trailing: Icon(Icons.add,size: 20),
                         title: Text(
                           contacts[index],
                         ),
