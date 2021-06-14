@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:contact/screens/contactForm/newContact.dart';
 import 'package:contact/shared/components/drawerMenu.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,7 @@ class _HomeState extends State<Home> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.indigo[900],
-           Colors.indigoAccent],
+          colors: [Colors.indigo[900], Colors.indigoAccent],
         ),
       ),
     ),
@@ -53,8 +53,8 @@ class _HomeState extends State<Home> {
             LayoutBuilder(
               builder: (_, constraints) {
                 return Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                  height: MediaQuery.of(context).size.height *.85,
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  height: MediaQuery.of(context).size.height * .85,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -63,34 +63,29 @@ class _HomeState extends State<Home> {
                   child: ListView.builder(
                     itemCount: contacts.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return ExpansionTile(
-                        //trailing: Icon(Icons.add,size: 20),
-                        title: Text(
-                          contacts[index],
+                      return ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.blue,
                         ),
-                        children: [
-                          Text('CEP : 57038-642',
-                              style: TextStyle(
-                                color: Colors.green,
-                              )),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () {}),
+                        title: Text(contacts[index]),
+                        subtitle: Text('555-1234'),
+                        trailing: Container(
+                          width: 100,
+                          child: Row(
+                            children: <Widget>[
                               IconButton(
                                   icon: Icon(
                                     Icons.edit,
-                                    color: Colors.amber,
+                                    color: Colors.grey[400],
                                   ),
+                                  onPressed: () {}),
+                              IconButton(
+                                  icon: Icon(Icons.delete,
+                                      color: Colors.grey[400]),
                                   onPressed: () {})
                             ],
-                          )
-                        ],
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -103,8 +98,8 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => NewCtt()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (BuildContext context) => NewCtt()));
         },
       ),
     );

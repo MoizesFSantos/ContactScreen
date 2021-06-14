@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../viewModel/auth/register_auth.dart';
 import 'components/form.dart';
+import 'package:contact/viewModel/auth/register_auth.dart';
 
 class UserReg extends StatefulWidget {
   @override
@@ -7,6 +9,7 @@ class UserReg extends StatefulWidget {
 }
 
 class _UserRegState extends State<UserReg> {
+  bool senha = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,36 +39,40 @@ class _UserRegState extends State<UserReg> {
               colors: [Colors.indigoAccent, Colors.blue],
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                height: MediaQuery.of(context).size.height - 120.0,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                        BorderRadius.only(topLeft: Radius.circular(75.0))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 50,
-                    ),
-                    FormFild(),
-                    SizedBox(
-                      height: 17,
-                    ),
-                    Divider(
-                      height: 20,
-                      thickness: 2,
-                    ),
-                    SizedBox(
-                      height: 17,
-                    ),
-                    ElevatedButton(
-                        onPressed: () {},
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  height: MediaQuery.of(context).size.height - 120.0,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(75.0))),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 50,
+                      ),
+                      FormFild(),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      Divider(
+                        height: 20,
+                        thickness: 2,
+                      ),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          doSignUp();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -79,11 +86,13 @@ class _UserRegState extends State<UserReg> {
                                   fontSize: 17, fontWeight: FontWeight.w500),
                             ),
                           ],
-                        ))
-                  ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

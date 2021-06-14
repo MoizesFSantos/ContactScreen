@@ -14,7 +14,9 @@ class _ContactFormState extends State<ContactForm> {
           leading: Icon(Icons.person),
           title: Text('Dados Pessoais'),
           children: [
-            TextFormField(
+            ListView(
+              children: [
+                TextFormField(
               decoration:
                   InputDecoration(icon: Icon(Icons.person), hintText: 'Nome'),
             ),
@@ -24,6 +26,8 @@ class _ContactFormState extends State<ContactForm> {
                   InputDecoration(icon: Icon(Icons.email), hintText: 'Email'),
             ),
             TextButton(onPressed: () {}, child: Text('Adicionar a um grupo'))
+              ],
+            ),
           ],
         ),
         SizedBox(
