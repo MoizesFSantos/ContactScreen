@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:contact/shared/alerts/ok_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

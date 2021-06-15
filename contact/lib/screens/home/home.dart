@@ -1,6 +1,8 @@
 import 'dart:math';
+import 'package:contact/data/contatos_testList.dart';
 import 'package:contact/screens/contactForm/newContact.dart';
 import 'package:contact/shared/components/drawerMenu.dart';
+import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -9,7 +11,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final contacts = List<String>.generate(20, (index) => 'Contato ${index + 1}');
+  List<Contact> contacts = [];
+  @override
+  void initState() {
+    super.initState();
+    getAllContact();
+  }
+
+  getAllContact() async {
+    List<Contact> _contacts =
+        (await ContactsService.getContacts(withThumbnails: false)).toList();
+    setState(() {
+      contacts = _contacts;
+    });
+  }
+
   var appBar = AppBar(
     flexibleSpace: Container(
       decoration: BoxDecoration(
@@ -61,14 +77,18 @@ class _HomeState extends State<Home> {
                       borderRadius:
                           BorderRadius.only(topLeft: Radius.circular(75.0))),
                   child: ListView.builder(
+                    shrinkWrap: true,
                     itemCount: contacts.length,
                     itemBuilder: (BuildContext context, int index) {
+                      Contact contact = contacts[index];
                       return ListTile(
                         leading: CircleAvatar(
                           backgroundColor: Colors.blue,
+                          //child: Text(contatos.values.elementAt(index).initials())
                         ),
-                        title: Text(contacts[index]),
-                        subtitle: Text('555-1234'),
+                        title: Text(contact.displayName),
+                        subtitle:
+                            Text(contact.phones.elementAt(0).value),
                         trailing: Container(
                           width: 100,
                           child: Row(
